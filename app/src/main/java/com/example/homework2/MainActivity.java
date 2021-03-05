@@ -13,7 +13,6 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity  {
-    //implements AdapterView.OnItemSelectedListener
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,14 +25,6 @@ public class MainActivity extends AppCompatActivity  {
         // random face button
         Button Random = (Button)findViewById(R.id.randomFaceButton);
         Random.setOnClickListener(theView);
-
-        // radio button
-        /*Button hairButton = (Button)findViewById(R.id.hairButton);
-        hairButton.setOnClickListener(theView);
-        Button hairButton = (Button)findViewById(R.id.hairButton);
-        hairButton.setOnClickListener(theView);
-        Button hairButton = (Button)findViewById(R.id.hairButton);
-        hairButton.setOnClickListener(theView);*/
 
         // radio group
         RadioGroup radioGroup = findViewById(R.id.radioButtonHES);
@@ -53,23 +44,7 @@ public class MainActivity extends AppCompatActivity  {
                 (this, R.array.hairStyles, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(theView);
-        //spinner.setOnItemSelectedListener(this);
-
-
 
     }
 
-    /*@Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        // spinner
-        String text = parent.getItemAtPosition(position).toString();
-        Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
-
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
-    }*/
 }

@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.SurfaceView;
 import android.view.View;
 import android.widget.AdapterView;
@@ -18,6 +19,7 @@ public class Face extends SurfaceView implements SeekBar.OnSeekBarChangeListener
         AdapterView.OnItemSelectedListener, RadioGroup.OnCheckedChangeListener{
 
     // properties of the face
+
     // skin
     int skinColor;
     int skinColorRed;
@@ -90,7 +92,7 @@ public class Face extends SurfaceView implements SeekBar.OnSeekBarChangeListener
         hairColor = Color.rgb(hairColorRed, hairColorGreen, hairColorBlue);
         color.setColor(hairColor);
 
-        // EDIT THESE LATER IF NEEDED
+        // draws each hairstyle
         if (hairStyle == 0){
             // draw hairstyle 1: long
             canvas.drawRect(700, 200, 1800, 550, color);
@@ -196,15 +198,16 @@ public class Face extends SurfaceView implements SeekBar.OnSeekBarChangeListener
     public void onCheckedChanged(RadioGroup group, int checkedId) {
         // for radio group
 
+        wasPressed = checkedId;
+
+        // CRASHES THE CODE: COMMENTED OUT
+
         // creates seekbar objects
-        SeekBar redSB = (SeekBar)findViewById(R.id.redSeekBar);
+        /*SeekBar redSB = (SeekBar)findViewById(R.id.redSeekBar);
         SeekBar greenSB = (SeekBar)findViewById(R.id.greenSeekBar);
         SeekBar blueSB = (SeekBar)findViewById(R.id.blueSeekBar);
 
-        wasPressed = checkedId;
-
         // updates the seekbars
-        // CRASHES CODE
         if (wasPressed == R.id.hairButton){
             redSB.setProgress(hairColorRed);
             greenSB.setProgress(hairColorGreen);
@@ -217,7 +220,7 @@ public class Face extends SurfaceView implements SeekBar.OnSeekBarChangeListener
             redSB.setProgress(skinColorRed);
             greenSB.setProgress(skinColorGreen);
             blueSB.setProgress(skinColorBlue);
-        }
+        }*/
 
     }
 }
