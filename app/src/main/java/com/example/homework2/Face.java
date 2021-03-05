@@ -111,9 +111,8 @@ public class Face extends SurfaceView implements SeekBar.OnSeekBarChangeListener
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
         // for color SeekBars
-        // make the seekBar change the colors
+        // makes the seekBar change the colors
 
-        // == R.id.hairButton
         if (wasPressed == R.id.hairButton){
             // hair button pressed
             if (seekBar.getId() == R.id.redSeekBar){
@@ -170,19 +169,18 @@ public class Face extends SurfaceView implements SeekBar.OnSeekBarChangeListener
 
         String text = parent.getItemAtPosition(position).toString();
         Toast.makeText(myContext, text, Toast.LENGTH_SHORT).show();
+
         // change hair styles
-        //if (spinner == "long"){ // draw long hair & invalidate}
         if (position == 0){
             // long
-            Toast.makeText(myContext, "you selected long hair", Toast.LENGTH_LONG).show();
             hairStyle = 0;
             invalidate();
         } else if (position == 1){
-            Toast.makeText(myContext, "you selected short hair", Toast.LENGTH_LONG).show();
+            // short
             hairStyle = 1;
             invalidate();
         } else {
-            Toast.makeText(myContext, "you selected shorter hair", Toast.LENGTH_LONG).show();
+            // shorter
             hairStyle = 2;
             invalidate();
         }
@@ -197,7 +195,29 @@ public class Face extends SurfaceView implements SeekBar.OnSeekBarChangeListener
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
         // for radio group
+
+        // creates seekbar objects
+        SeekBar redSB = (SeekBar)findViewById(R.id.redSeekBar);
+        SeekBar greenSB = (SeekBar)findViewById(R.id.greenSeekBar);
+        SeekBar blueSB = (SeekBar)findViewById(R.id.blueSeekBar);
+
         wasPressed = checkedId;
+
+        // updates the seekbars
+        // CRASHES CODE
+        if (wasPressed == R.id.hairButton){
+            redSB.setProgress(hairColorRed);
+            greenSB.setProgress(hairColorGreen);
+            blueSB.setProgress(hairColorBlue);
+        } else if (wasPressed == R.id.eyesButton){
+            redSB.setProgress(eyeColorRed);
+            greenSB.setProgress(eyeColorGreen);
+            blueSB.setProgress(eyeColorBlue);
+        } else if (wasPressed == R.id.skinButton){
+            redSB.setProgress(skinColorRed);
+            greenSB.setProgress(skinColorGreen);
+            blueSB.setProgress(skinColorBlue);
+        }
 
     }
 }
