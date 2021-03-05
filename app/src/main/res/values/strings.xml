@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Homework2</string>
+
+    // items for spinner
+    <string-array name="hairStyles">
+        <item>long</item>
+        <item>short</item>
+        <item>shorter</item>
+    </string-array>
+
+</resources>
